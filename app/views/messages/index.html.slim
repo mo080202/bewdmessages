@@ -1,0 +1,10 @@
+h2 Messages
+= link_to 'New message', new_message_path
+- @messages.each do |message|
+  h4 = message.content
+  | Posted by:
+  =< message_author(message)
+  br
+  - if message_author?(message)
+    => link_to 'Edit', edit_message_path(message)
+    =< link_to 'Delete', message_path(message), method: :delete
